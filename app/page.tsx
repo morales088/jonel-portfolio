@@ -27,6 +27,7 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState<Section>(null);
   const [messages, setMessages] = useState<Message[]>([]);
   const [customQuestion, setCustomQuestion] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const sectionQuestions = {
@@ -53,20 +54,59 @@ export default function Home() {
     setActiveSection(section);
   };
 
-  const handleCustomQuestion = (question: string) => {
-    if (!question.trim()) return;
+  const handleCustomQuestion = async (question: string) => {
+    if (!question.trim() || isLoading) return;
 
-    const newMessage: Message = {
+    const userQuestion = question.trim();
+    setCustomQuestion("");
+    setIsLoading(true);
+
+    // Show question immediately
+    const tempMessage: Message = {
       id: Date.now().toString(),
-      question: question.trim(),
-      answer:
-        "Thanks for your question! Feel free to explore the sections above or ask me anything specific about my work, skills, or experience.",
+      question: userQuestion,
+      answer: "Thinking...",
       section: null,
     };
+    setMessages([tempMessage]);
 
-    // Replace previous conversation with new one
-    setMessages([newMessage]);
-    setCustomQuestion("");
+    try {
+      // Call AI API
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ message: userQuestion }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to get response");
+      }
+
+      const data = await response.json();
+      const aiAnswer = data.response || "I'm sorry, I couldn't generate a response.";
+
+      // Update message with AI response
+      const updatedMessage: Message = {
+        id: Date.now().toString(),
+        question: userQuestion,
+        answer: aiAnswer,
+        section: null,
+      };
+      setMessages([updatedMessage]);
+    } catch (error) {
+      console.error("Error getting AI response:", error);
+      const errorMessage: Message = {
+        id: Date.now().toString(),
+        question: userQuestion,
+        answer: "I'm sorry, I encountered an error. Please try again.",
+        section: null,
+      };
+      setMessages([errorMessage]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const getSectionContent = (section: Section) => {
@@ -191,7 +231,13 @@ export default function Home() {
               value={customQuestion}
               onChange={setCustomQuestion}
               onSubmit={handleCustomQuestion}
+              isLoading={isLoading}
             />
+            {isLoading && (
+              <p className="text-center text-slate-500 text-sm mt-3">
+                🤔 Thinking about your question...
+              </p>
+            )}
           </div>
         </div>
       </div>
