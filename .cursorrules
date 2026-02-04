@@ -1,0 +1,38 @@
+# Portfolio Project Rules
+
+## Project Overview
+This is a Next.js portfolio website built with TypeScript and Tailwind CSS.
+It features a single-page interaction model with section reveals via navigation pills.
+
+## Code Style
+- Use TypeScript for all new files
+- Use Tailwind CSS for styling (no CSS modules)
+- Prefer functional components with hooks
+- Use "use client" directive only when state/effects are needed
+- Keep components small and focused
+
+## File Organization
+- Components go in `/components`
+- Section components go in `/components/sections`
+- Pages go in `/app`
+- Static assets go in `/public`
+
+## Naming Conventions
+- Components: PascalCase (e.g., `NavPill.tsx`)
+- Files: PascalCase for components, lowercase for configs
+- CSS classes: Tailwind utilities only
+
+## Design System
+- Primary gradient: `from-purple-400 to-pink-400`
+- Background: `from-purple-100 via-pink-50 to-blue-50`
+- Border radius: Large (rounded-2xl, rounded-3xl)
+- Shadows: Soft (shadow-lg, shadow-xl)
+- Transitions: Subtle, smooth
+
+## Best Practices
+- Mobile-first responsive design
+- Semantic HTML
+- Accessible components (ARIA labels)
+- Optimized images
+- Minimal client-side JavaScript
+- Server components by default
