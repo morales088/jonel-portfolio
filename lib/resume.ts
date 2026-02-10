@@ -33,6 +33,11 @@ Gardner College, Quezon City, Philippines (2014–2017)
 - Docker
 - Render.com
 
+### Automation & AI Development
+- Automation Tools: n8n, Make.com
+- AI-Assisted Development: Cursor, Lovable, Claude
+- Rapid prototyping and workflow automation
+
 ### Additional Skills
 - CI/CD & DevOps
 - API Design & Architecture
@@ -98,6 +103,22 @@ Gardner College, Quezon City, Philippines (2014–2017)
 - Backend system for student data handling and course management
 - Technologies: Nest.js, PostgreSQL, AWS, Cloudflare, CI/CD
 - Impact: Optimized admin efficiency
+
+### AI-Powered Web Projects (Lovable.ai)
+- Date Fruit Global Export platform
+- Live: https://preview--date-fruit-global-export.lovable.app/
+- Technologies: AI-assisted development with Lovable
+- Impact: Rapid prototyping and deployment
+
+- Route Roll Runner application
+- Live: https://preview--route-roll-runner.lovable.app/
+- Technologies: AI-assisted development with Lovable
+- Impact: Fast iteration and modern UI implementation
+
+- Cafe Flow Craft management system
+- Live: https://preview--cafe-flow-craft.lovable.app/ (password: 4567)
+- Technologies: AI-assisted development with Lovable
+- Impact: Efficient business workflow solution
 
 ## Achievements
 - Improved transaction processing efficiency through system integrations

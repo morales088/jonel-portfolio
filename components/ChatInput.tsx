@@ -24,7 +24,7 @@ export default function ChatInput({ value: propValue, onChange, onSubmit, isLoad
           onChange={(e) => onChange?.(e.target.value)}
           placeholder="Ask me anything about my resume..."
           disabled={isLoading}
-          className="w-full px-6 py-4 pr-16 text-base rounded-2xl bg-white shadow-md border border-slate-200 focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition-all placeholder:text-slate-400 disabled:opacity-60 disabled:cursor-not-allowed"
+          className="w-full px-6 py-4 pr-16 text-base text-slate-900 font-medium rounded-2xl bg-white shadow-md border border-slate-200 focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 transition-all placeholder:text-slate-400 disabled:opacity-60 disabled:cursor-not-allowed"
         />
         <button
           type="submit"
