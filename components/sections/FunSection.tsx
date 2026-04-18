@@ -1,45 +1,42 @@
+const funFacts = [
+  { icon: "🧩", text: "I love solving complex backend challenges — the messier the problem, the better.", color: "bg-violet-50 border-violet-100" },
+  { icon: "☕", text: "Coffee-powered developer. At least 2 cups before any production deployment.", color: "bg-amber-50 border-amber-100" },
+  { icon: "🤖", text: "Heavy user of AI coding tools — Cursor, Claude, Lovable. I ship fast.", color: "bg-indigo-50 border-indigo-100" },
+  { icon: "📦", text: "I've migrated entire databases across cloud providers without downtime.", color: "bg-emerald-50 border-emerald-100" },
+  { icon: "🏆", text: "Always learning — currently exploring n8n automations and AI-powered SaaS ideas.", color: "bg-pink-50 border-pink-100" },
+];
+
+const interests = [
+  "Backend Architecture", "API Design", "DevOps", "Cloud Computing",
+  "Database Optimization", "AI Tooling", "Workflow Automation",
+];
+
 export default function FunSection() {
-  const funFacts = [
-    "I love solving complex backend challenges 🧩",
-    "Coffee-powered developer ☕",
-    "Open source contributor",
-    "Always learning new technologies",
-    "Hackathon enthusiast 🏆",
-  ];
-
   return (
-    <div className="animate-fadeIn">
-      <div className="bg-white rounded-3xl shadow-lg border border-slate-100 p-10 md:p-12 max-w-3xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8">
-          Fun Facts
-        </h2>
-
-        <div className="space-y-4">
-          {funFacts.map((fact, index) => (
-            <div
-              key={index}
-              className="flex items-start gap-4 p-5 rounded-2xl bg-slate-50 hover:bg-slate-100 hover:shadow-sm transition-all"
-            >
-              <span className="text-2xl flex-shrink-0">✨</span>
-              <p className="text-lg text-slate-700">{fact}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-10 pt-8 border-t border-slate-200">
-          <h3 className="text-xl font-semibold text-slate-900 mb-5">Interests</h3>
-          <div className="flex flex-wrap gap-3">
-            {["Backend Architecture", "API Design", "DevOps", "Cloud Computing", "Database Optimization"].map(
-              (interest) => (
-                <span
-                  key={interest}
-                  className="px-5 py-2.5 bg-slate-100 text-slate-700 rounded-xl text-sm font-medium hover:bg-slate-200 transition-colors"
-                >
-                  {interest}
-                </span>
-              )
-            )}
+    <div className="animate-fadeIn max-w-3xl mx-auto space-y-4">
+      <div className="space-y-3">
+        {funFacts.map((fact, i) => (
+          <div
+            key={i}
+            className={`flex items-start gap-4 p-4 rounded-2xl border ${fact.color} transition-all hover:-translate-y-0.5`}
+          >
+            <span className="text-xl flex-shrink-0 mt-0.5">{fact.icon}</span>
+            <p className="text-sm text-slate-700 leading-relaxed">{fact.text}</p>
           </div>
+        ))}
+      </div>
+
+      <div className="glass border border-slate-200/70 rounded-2xl p-5 shadow-sm">
+        <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">Interests</p>
+        <div className="flex flex-wrap gap-2">
+          {interests.map((item) => (
+            <span
+              key={item}
+              className="px-3 py-1.5 bg-slate-100 text-slate-600 rounded-xl text-xs font-medium hover:bg-slate-200 transition-colors"
+            >
+              {item}
+            </span>
+          ))}
         </div>
       </div>
     </div>

@@ -23,7 +23,7 @@ Gardner College, Quezon City, Philippines (2014–2017)
 - React, Vue.js, Next.js
 
 ### Databases
-- MySQL, PostgreSQL, MongoDB
+- MySQL, PostgreSQL, MongoDB, Neon PostgreSQL, Prisma
 
 ### Tools & Platforms
 - Git, GitHub Actions
@@ -103,6 +103,12 @@ Gardner College, Quezon City, Philippines (2014–2017)
 - Backend system for student data handling and course management
 - Technologies: Nest.js, PostgreSQL, AWS, Cloudflare, CI/CD
 - Impact: Optimized admin efficiency
+
+### RUCS - OOH (Out-of-Home Advertising Portfolio)
+- Full-stack OOH advertising portfolio platform for RUCS, showcasing billboard, LED, transit, train, and small format campaigns nationwide
+- Technologies: Next.js, TypeScript, Tailwind CSS
+- Impact: Comprehensive media portfolio covering Luzon, Visayas, and Mindanao campaigns
+- Live: https://www.rucs.ph/
 
 ### AI-Powered Web Projects (Lovable.ai)
 - Date Fruit Global Export platform

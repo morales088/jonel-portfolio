@@ -6,7 +6,6 @@ import ChatInput from "@/components/ChatInput";
 import NavPill from "@/components/NavPill";
 import ScrollToTop from "@/components/ScrollToTop";
 import MessageBubble from "@/components/MessageBubble";
-// import Banner from "@/components/Banner";
 import { MeIcon, ProjectsIcon, SkillsIcon, FunIcon, ContactIcon } from "@/components/icons/Icons";
 import MeSection from "@/components/sections/MeSection";
 import ProjectsSection from "@/components/sections/ProjectsSection";
@@ -30,7 +29,7 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const sectionQuestions = {
+  const sectionQuestions: Record<NonNullable<Section>, string> = {
     me: "Tell me about yourself",
     projects: "What projects have you worked on?",
     skills: "What are your skills?",
@@ -40,70 +39,43 @@ export default function Home() {
 
   const handlePillClick = (section: Section) => {
     if (!section) return;
-
-    const question = sectionQuestions[section];
-    const newMessage: Message = {
+    setMessages([{
       id: Date.now().toString(),
-      question,
+      question: sectionQuestions[section],
       answer: getSectionContent(section),
       section,
-    };
-
-    // Replace previous conversation with new one
-    setMessages([newMessage]);
+    }]);
     setActiveSection(section);
   };
 
   const handleCustomQuestion = async (question: string) => {
     if (!question.trim() || isLoading) return;
-
     const userQuestion = question.trim();
     setCustomQuestion("");
     setIsLoading(true);
-
-    // Show question immediately
-    const tempMessage: Message = {
-      id: Date.now().toString(),
-      question: userQuestion,
-      answer: "Thinking...",
-      section: null,
-    };
-    setMessages([tempMessage]);
+    setMessages([{ id: Date.now().toString(), question: userQuestion, answer: "Thinking…", section: null }]);
 
     try {
-      // Call AI API
       const response = await fetch("/api/chat", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: userQuestion }),
       });
-
-      if (!response.ok) {
-        throw new Error("Failed to get response");
-      }
-
+      if (!response.ok) throw new Error("Failed");
       const data = await response.json();
-      const aiAnswer = data.response || "I'm sorry, I couldn't generate a response.";
-
-      // Update message with AI response
-      const updatedMessage: Message = {
+      setMessages([{
         id: Date.now().toString(),
         question: userQuestion,
-        answer: aiAnswer,
+        answer: data.response || "I'm sorry, I couldn't generate a response.",
         section: null,
-      };
-      setMessages([updatedMessage]);
-    } catch (error) {
-      console.error("Error getting AI response:", error);
-      const errorMessage: Message = {
+      }]);
+    } catch {
+      setMessages([{
         id: Date.now().toString(),
         question: userQuestion,
         answer: "I'm sorry, I encountered an error. Please try again.",
         section: null,
-      };
-      setMessages([errorMessage]);
+      }]);
     } finally {
       setIsLoading(false);
     }
@@ -111,105 +83,72 @@ export default function Home() {
 
   const getSectionContent = (section: Section) => {
     switch (section) {
-      case "me":
-        return <MeSection />;
-      case "projects":
-        return <ProjectsSection />;
-      case "skills":
-        return <SkillsSection />;
-      case "fun":
-        return <FunSection />;
-      case "contact":
-        return <ContactSection />;
-      default:
-        return null;
+      case "me":       return <MeSection />;
+      case "projects": return <ProjectsSection />;
+      case "skills":   return <SkillsSection />;
+      case "fun":      return <FunSection />;
+      case "contact":  return <ContactSection />;
+      default:         return null;
     }
   };
 
-  // Scroll to bottom when new messages are added
   useEffect(() => {
     if (messages.length > 0) {
-      setTimeout(() => {
-        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-      }, 100);
+      setTimeout(() => messagesEndRef.current?.scrollIntoView({ behavior: "smooth" }), 100);
     }
   }, [messages]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
-      {/* Optional Banner - uncomment to use */}
-      {/* <Banner 
-        message="This portfolio is unpublished - only you can see it" 
-        actionText="Back to Dashboard"
-        actionHref="/"
-      /> */}
-      
-      {/* Hero Section */}
-      <div className="max-w-4xl mx-auto px-6 py-20">
-        <div className="text-center space-y-6">
-          {/* Avatar */}
+    <div className="min-h-screen bg-mesh">
+      <div className="max-w-4xl mx-auto px-5 pt-20 pb-6">
+
+        {/* Hero */}
+        <div className="text-center space-y-6 animate-slideUp">
           <div className="flex justify-center">
             <Avatar />
           </div>
 
-          {/* Greeting */}
-          <div>
-            <h2 className="text-xl md:text-2xl text-slate-600 mb-4 font-medium">
-              Hey, I'm John Neil 👋
-            </h2>
-            <h1 className="text-5xl md:text-6xl font-bold text-slate-900 leading-tight mb-3">
-              Software Engineer
+          <div className="space-y-1">
+            <p className="text-sm font-semibold text-indigo-500 tracking-widest uppercase">
+              Available for work
+            </p>
+            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
+              John Neil Morales
             </h1>
-            <p className="text-xl text-slate-500">Backend Specialist</p>
+            <p className="text-lg text-slate-500 font-medium">Backend Developer · Full-Stack Engineer</p>
           </div>
 
-          {/* Navigation Pills */}
-          <div className="flex flex-wrap justify-center gap-3 pt-8">
-            <NavPill
-              label="Me"
-              icon={<MeIcon />}
-              active={activeSection === "me"}
-              onClick={() => handlePillClick("me")}
-            />
-            <NavPill
-              label="Projects"
-              icon={<ProjectsIcon />}
-              active={activeSection === "projects"}
-              onClick={() => handlePillClick("projects")}
-            />
-            <NavPill
-              label="Skills"
-              icon={<SkillsIcon />}
-              active={activeSection === "skills"}
-              onClick={() => handlePillClick("skills")}
-            />
-            <NavPill
-              label="Fun"
-              icon={<FunIcon />}
-              active={activeSection === "fun"}
-              onClick={() => handlePillClick("fun")}
-            />
-            <NavPill
-              label="Contact"
-              icon={<ContactIcon />}
-              active={activeSection === "contact"}
-              onClick={() => handlePillClick("contact")}
-            />
+          {/* Pills */}
+          <div className="flex flex-wrap justify-center gap-2.5 pt-4">
+            {(["me", "projects", "skills", "fun", "contact"] as Section[]).map((s) => {
+              const icons = { me: <MeIcon />, projects: <ProjectsIcon />, skills: <SkillsIcon />, fun: <FunIcon />, contact: <ContactIcon /> };
+              const labels = { me: "Me", projects: "Projects", skills: "Skills", fun: "Fun", contact: "Contact" };
+              return (
+                <NavPill
+                  key={s}
+                  label={labels[s!]}
+                  icon={icons[s!]}
+                  active={activeSection === s}
+                  onClick={() => handlePillClick(s)}
+                />
+              );
+            })}
           </div>
 
-          {/* Welcome Message */}
+          {/* Empty state */}
           {messages.length === 0 && (
-            <div className="mt-12 text-center">
-              <p className="text-slate-600 text-lg">
-                👋 Hi! Click any topic above or ask me a question to get started.
-              </p>
+            <div className="mt-10 animate-fadeIn">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-slate-200/60 text-slate-500 text-sm shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                Click a topic above or ask me anything below
+              </div>
             </div>
           )}
         </div>
 
-        {/* Conversation Area */}
+        {/* Conversation */}
         {messages.length > 0 && (
-          <div className="max-w-5xl mx-auto px-6 mt-12 pb-12">
+          <div className="mt-10 pb-6">
             {messages.map((message) => (
               <div key={message.id}>
                 <MessageBubble type="question" content={message.question} />
@@ -223,26 +162,20 @@ export default function Home() {
             <div ref={messagesEndRef} />
           </div>
         )}
+      </div>
 
-        {/* Sticky Chat Input */}
-        <div className="sticky bottom-0 bg-gradient-to-t from-white via-white to-transparent pt-8 pb-6">
-          <div className="max-w-4xl mx-auto px-6">
-            <ChatInput
-              value={customQuestion}
-              onChange={setCustomQuestion}
-              onSubmit={handleCustomQuestion}
-              isLoading={isLoading}
-            />
-            {isLoading && (
-              <p className="text-center text-slate-500 text-sm mt-3">
-                🤔 Thinking about your question...
-              </p>
-            )}
-          </div>
+      {/* Sticky input */}
+      <div className="sticky bottom-0 bg-gradient-to-t from-slate-50 via-slate-50/95 to-transparent pt-6 pb-5">
+        <div className="max-w-2xl mx-auto px-5">
+          <ChatInput
+            value={customQuestion}
+            onChange={setCustomQuestion}
+            onSubmit={handleCustomQuestion}
+            isLoading={isLoading}
+          />
         </div>
       </div>
 
-      {/* Scroll to Top Button */}
       <ScrollToTop />
     </div>
   );
