@@ -48,6 +48,15 @@ Gardner College, Quezon City, Philippines (2014–2017)
 
 ## Professional Experience
 
+### Freelance Fullstack Developer · Automation & AI | Upwork / Independent (2025 – Present)
+- Building and delivering full-stack web applications for international clients via Upwork
+- Developing AI-powered tools and automation workflows using n8n, Make.com, and Claude AI
+- Creating custom automation solutions that reduce manual work and improve business efficiency
+- Integrating LLMs and AI APIs into client products for smarter, faster user experiences
+- Setting up and customizing GoHighLevel for clients, integrating it with their existing systems
+- Integrating payment gateways including Stripe and PayPal into web applications
+- Building websites rapidly using Webflow, Shopify, and custom code
+
 ### Backend Developer | NEXT MBA / Freelance (2021 – 2025)
 - Developed robust backend systems for task management tools and school portals using Nest.js
 - Integrated PostgreSQL, MongoDB, and AWS to enhance performance and scalability
