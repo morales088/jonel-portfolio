@@ -12,6 +12,7 @@ import ProjectsSection from "@/components/sections/ProjectsSection";
 import SkillsSection from "@/components/sections/SkillsSection";
 import FunSection from "@/components/sections/FunSection";
 import ContactSection from "@/components/sections/ContactSection";
+import InquiryButton from "@/components/InquiryButton";
 
 type Section = "me" | "projects" | "skills" | "fun" | "contact" | null;
 
@@ -28,6 +29,20 @@ export default function Home() {
   const [customQuestion, setCustomQuestion] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const shouldScrollRef = useRef(false);
+  const pillsRef = useRef<HTMLDivElement>(null);
+  const conversationRef = useRef<HTMLDivElement>(null);
+  const [floatingNav, setFloatingNav] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (pillsRef.current) {
+        setFloatingNav(window.scrollY > pillsRef.current.offsetTop + pillsRef.current.offsetHeight);
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const sectionQuestions: Record<NonNullable<Section>, string> = {
     me: "Tell me about yourself",
@@ -46,6 +61,7 @@ export default function Home() {
       section,
     }]);
     setActiveSection(section);
+    setTimeout(() => conversationRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
   };
 
   const handleCustomQuestion = async (question: string) => {
@@ -53,6 +69,7 @@ export default function Home() {
     const userQuestion = question.trim();
     setCustomQuestion("");
     setIsLoading(true);
+    shouldScrollRef.current = true;
     setMessages([{ id: Date.now().toString(), question: userQuestion, answer: "Thinking…", section: null }]);
 
     try {
@@ -93,13 +110,31 @@ export default function Home() {
   };
 
   useEffect(() => {
-    if (messages.length > 0) {
+    if (messages.length > 0 && shouldScrollRef.current) {
       setTimeout(() => messagesEndRef.current?.scrollIntoView({ behavior: "smooth" }), 100);
+      shouldScrollRef.current = false;
     }
   }, [messages]);
 
   return (
     <div className="min-h-screen bg-mesh">
+
+      {/* Floating sticky nav */}
+      <div className={`fixed top-0 left-0 right-0 z-30 flex justify-center gap-2.5 px-4 pt-3 pb-2 bg-gradient-to-b from-slate-50/95 to-transparent backdrop-blur-sm transition-all duration-300 ${floatingNav ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full pointer-events-none"}`}>
+        {(["me", "projects", "skills", "fun", "contact"] as Section[]).map((s) => {
+          const icons = { me: <MeIcon />, projects: <ProjectsIcon />, skills: <SkillsIcon />, fun: <FunIcon />, contact: <ContactIcon /> };
+          const labels = { me: "Me", projects: "Projects", skills: "Skills", fun: "Fun", contact: "Contact" };
+          return (
+            <NavPill
+              key={s}
+              label={labels[s!]}
+              icon={icons[s!]}
+              active={activeSection === s}
+              onClick={() => handlePillClick(s)}
+            />
+          );
+        })}
+      </div>
       <div className="max-w-4xl mx-auto px-5 pt-20 pb-6">
 
         {/* Hero */}
@@ -119,7 +154,7 @@ export default function Home() {
           </div>
 
           {/* Pills */}
-          <div className="flex flex-wrap justify-center gap-2.5 pt-4">
+          <div ref={pillsRef} className="flex flex-wrap justify-center gap-2.5 pt-4">
             {(["me", "projects", "skills", "fun", "contact"] as Section[]).map((s) => {
               const icons = { me: <MeIcon />, projects: <ProjectsIcon />, skills: <SkillsIcon />, fun: <FunIcon />, contact: <ContactIcon /> };
               const labels = { me: "Me", projects: "Projects", skills: "Skills", fun: "Fun", contact: "Contact" };
@@ -148,7 +183,7 @@ export default function Home() {
 
         {/* Conversation */}
         {messages.length > 0 && (
-          <div className="mt-10 pb-6">
+          <div ref={conversationRef} className="mt-10 pb-6">
             {messages.map((message) => (
               <div key={message.id}>
                 <MessageBubble type="question" content={message.question} />
@@ -177,6 +212,7 @@ export default function Home() {
       </div>
 
       <ScrollToTop />
+      <InquiryButton />
     </div>
   );
 }

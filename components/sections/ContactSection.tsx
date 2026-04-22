@@ -76,7 +76,7 @@ export default function ContactSection() {
       ))}
 
       <p className="text-xs text-slate-400 text-center pt-1">
-        Feel free to reach out — I'm always open to interesting projects and opportunities.
+        Feel free to reach out — I&apos;m always open to interesting projects and opportunities.
       </p>
     </div>
   );
