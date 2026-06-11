@@ -34,7 +34,9 @@ Gardner College, Quezon City, Philippines (2014–2017)
 - Render.com
 
 ### Automation & AI Development
-- Automation Tools: n8n, Make.com
+- Automation Tools: n8n, Make.com, Zapier
+- CRM & Marketing Platforms: GoHighLevel (GHL), Boulevard
+- Tracking & Analytics: Facebook Pixel, Ad Conversion Optimization
 - AI-Assisted Development: Cursor, Lovable, Claude
 - Rapid prototyping and workflow automation
 
@@ -112,6 +114,18 @@ Gardner College, Quezon City, Philippines (2014–2017)
 - Backend system for student data handling and course management
 - Technologies: Nest.js, PostgreSQL, AWS, Cloudflare, CI/CD
 - Impact: Optimized admin efficiency
+
+### Prime MedSpa — Lead Generation & Booking Automation System (Client Work)
+- Built a full lead generation and booking automation system for Prime MedSpa (Nguyen Aesthetics LLC), a luxury aesthetic medicine clinic in Portland, OR & Vancouver, WA
+- Role: Digital Marketing & Automation Specialist
+- Designed and developed 3 conversion-optimized landing pages with a luxury black/white/gold aesthetic and mobile-responsive Boulevard booking integration
+- Funnels: Free Consultation (https://go.primemedspapdx.com/free-consultation-248804), Wrinkle Relaxers (https://go.primemedspapdx.com/botox), Microneedling + PRP (https://go.primemedspapdx.com/microneedling_prp-page)
+- Configured full GoHighLevel CRM pipeline: New Lead → Contacted → Booked → Showed → Closed, with automated stage movement triggered by real booking events from Boulevard
+- Built a 5-email + SMS nurture sequence that auto-stops when a lead books an appointment, using GHL dynamic variables for personalized messaging
+- Integrated Boulevard with GHL via Zapier: automated contact stage updates on new appointments and post-visit Google Review requests after completed appointments
+- Installed Facebook Pixel on all 3 funnels with PageView and Lead event tracking for ad conversion optimization
+- Impact: 60+ contacts moved through the pipeline within the first week of launch; zero manual work required from the client after setup
+- Technologies: GoHighLevel, Zapier, Boulevard, Facebook Pixel, HTML/CSS
 
 ### RUCS - OOH (Out-of-Home Advertising Portfolio)
 - Full-stack OOH advertising portfolio platform for RUCS, showcasing billboard, LED, transit, train, and small format campaigns nationwide

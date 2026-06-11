@@ -86,6 +86,18 @@ const projectData: Record<string, {
     tools: ["Laravel", "MySQL", "JavaScript", "Bootstrap"],
     gradient: "from-pink-500 to-rose-600",
   },
+  primemedspa: {
+    title: "Prime MedSpa",
+    description: "Client Work — Lead Generation & Booking Automation",
+    longDescription: "Built a full lead generation and booking automation system for Prime MedSpa (Nguyen Aesthetics LLC), a luxury aesthetic medicine clinic in Portland, OR & Vancouver, WA. Designed 3 conversion-optimized landing pages with a luxury black/white/gold aesthetic and mobile-responsive Boulevard booking integration. Configured a GoHighLevel CRM pipeline (New Lead → Contacted → Booked → Showed → Closed) with automated stage movement triggered by real booking events from Boulevard. Implemented a 5-email + SMS nurture sequence that auto-stops when a lead books. Integrated Boulevard with GHL via Zapier — automating contact stage updates and sending Google Review requests after completed appointments. Installed Facebook Pixel with PageView and Lead event tracking across all 3 funnels for ad conversion optimization. Achieved 60+ contacts through the pipeline within the first week of launch with zero manual work required from the client.",
+    tools: ["GoHighLevel", "Zapier", "Boulevard", "Facebook Pixel", "HTML/CSS"],
+    links: [
+      { label: "Free Consultation", url: "https://go.primemedspapdx.com/free-consultation-248804" },
+      { label: "Wrinkle Relaxers",  url: "https://go.primemedspapdx.com/botox" },
+      { label: "Microneedling + PRP", url: "https://go.primemedspapdx.com/microneedling_prp-page" },
+    ],
+    gradient: "from-slate-800 to-amber-700",
+  },
   rucs: {
     title: "RUCS — OOH",
     description: "Client Work — Out-of-Home advertising portfolio",

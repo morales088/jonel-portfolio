@@ -29,6 +29,8 @@ export async function POST(request: NextRequest) {
       "stepfun/step-3.5-flash:free",           // Primary model
       "arcee-ai/trinity-large-preview:free",             // Backup model 1
       "upstage/solar-pro-3:free", // Backup model 2
+      "upstage/solar-pro-3:free", // Backup model 2
+      "openrouter/auto", // Backup model 2
     ];
 
     let lastError = null;

@@ -3,6 +3,7 @@ import ProjectCard from "@/components/ProjectCard";
 const clientProjects = [
   { title: "NEXT MBA",          label: "Client Work", slug: "nextmba",       gradient: "from-blue-600 to-indigo-700" },
   { title: "RUCS — OOH",        label: "Client Work", slug: "rucs",          gradient: "from-emerald-500 to-teal-600" },
+  { title: "Prime MedSpa",      label: "Client Work", slug: "primemedspa",   gradient: "from-slate-800 to-amber-700" },
   { title: "GRocket",           label: "Client Work", slug: "grocket",       gradient: "from-orange-500 to-red-600" },
   { title: "Online Inventory",  label: "Client Work", slug: "inventory",     gradient: "from-pink-500 to-rose-600" },
   { title: "George Motorbikes", label: "Client Work", slug: "george",        gradient: "from-yellow-500 to-amber-600" },
