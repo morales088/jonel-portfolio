@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { systemPrompt } from "@/lib/resume";
+import { logQuestion } from "@/lib/questionLogger";
 
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 const OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions";
@@ -84,7 +85,9 @@ export async function POST(request: NextRequest) {
         // Success! Return the response
         console.log(`✅ Success with model: ${model}`);
         console.log(aiResponse);
-        
+
+        logQuestion(message).catch((e) => console.error("Failed to log question:", e));
+
         return NextResponse.json({ response: aiResponse });
 
       } catch (error) {
