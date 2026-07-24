@@ -32,6 +32,7 @@ export async function POST(request: NextRequest) {
       "google/gemma-2-9b-it:free",
       "qwen/qwen-2.5-7b-instruct:free",
       "deepseek/deepseek-r1-distill-llama-70b:free",
+      "openrouter/free"
     ];
 
     let lastError = null;
