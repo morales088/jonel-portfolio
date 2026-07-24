@@ -27,11 +27,11 @@ export async function POST(request: NextRequest) {
 
     // List of models to try in order (primary -> backup)
     const models = [
-      "stepfun/step-3.5-flash:free",           // Primary model
-      "arcee-ai/trinity-large-preview:free",             // Backup model 1
-      "upstage/solar-pro-3:free", // Backup model 2
-      "upstage/solar-pro-3:free", // Backup model 2
-      "openrouter/auto", // Backup model 2
+      "meta-llama/llama-3.1-8b-instruct:free",
+      "mistralai/mistral-7b-instruct:free",
+      "google/gemma-2-9b-it:free",
+      "qwen/qwen-2.5-7b-instruct:free",
+      "deepseek/deepseek-r1-distill-llama-70b:free",
     ];
 
     let lastError = null;
