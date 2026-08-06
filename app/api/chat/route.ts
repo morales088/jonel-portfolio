@@ -27,11 +27,12 @@ export async function POST(request: NextRequest) {
 
     // List of models to try in order (primary -> backup)
     const models = [
-      "meta-llama/llama-3.1-8b-instruct:free",
-      "mistralai/mistral-7b-instruct:free",
-      "qwen/qwen-2.5-7b-instruct:free",
-      "google/gemma-2-9b-it:free",
-      "deepseek/deepseek-r1-distill-llama-70b:free", // reasoning model — last resort
+      // "meta-llama/llama-3.1-8b-instruct:free",
+      // "mistralai/mistral-7b-instruct:free",
+      // "qwen/qwen-2.5-7b-instruct:free",
+      // "google/gemma-2-9b-it:free",
+      // "deepseek/deepseek-r1-distill-llama-70b:free",
+      "openrouter/free", // reasoning model — last resort
     ];
 
     let lastError = null;
