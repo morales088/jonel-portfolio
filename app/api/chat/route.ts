@@ -29,10 +29,9 @@ export async function POST(request: NextRequest) {
     const models = [
       "meta-llama/llama-3.1-8b-instruct:free",
       "mistralai/mistral-7b-instruct:free",
-      "google/gemma-2-9b-it:free",
       "qwen/qwen-2.5-7b-instruct:free",
-      "deepseek/deepseek-r1-distill-llama-70b:free",
-      "openrouter/free"
+      "google/gemma-2-9b-it:free",
+      "deepseek/deepseek-r1-distill-llama-70b:free", // reasoning model — last resort
     ];
 
     let lastError = null;
@@ -75,7 +74,9 @@ export async function POST(request: NextRequest) {
         }
 
         const data = await response.json();
-        const aiResponse = data.choices?.[0]?.message?.content;
+        const raw = data.choices?.[0]?.message?.content;
+        // Strip reasoning tokens from models like DeepSeek R1
+        const aiResponse = raw?.replace(/<think>[\s\S]*?<\/think>/gi, "").trim();
 
         if (!aiResponse) {
           console.error(`❌ Model ${model} returned no content`);
