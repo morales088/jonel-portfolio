@@ -16,6 +16,13 @@ const vibeProjects = [
   { title: "TaskPrio", label: "Vibe Code", slug: "taskprio", gradient: "from-violet-600 to-purple-700" },
 ];
 
+const automationProjects = [
+  { title: "AI Assistant Telegram Bot",          label: "Automation", slug: "telegrambot",     gradient: "from-sky-500 to-indigo-600" },
+  { title: "Meta Messenger AI Ordering Bot",     label: "Automation", slug: "messengerbot",    gradient: "from-blue-500 to-violet-600" },
+  { title: "PrimeMedSpa GHL Funnel + Automation",label: "Automation", slug: "ghlautomation",   gradient: "from-green-600 to-teal-700" },
+  { title: "NEXT MBA Payment Automation",        label: "Automation", slug: "nextmbapayment",  gradient: "from-slate-600 to-slate-800" },
+];
+
 export default function ProjectsSection() {
   return (
     <div className="animate-fadeIn max-w-5xl mx-auto space-y-8">
@@ -41,6 +48,19 @@ export default function ProjectsSection() {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {vibeProjects.map((p) => (
+            <ProjectCard key={p.slug} {...p} />
+          ))}
+        </div>
+      </div>
+
+      {/* Automation */}
+      <div className="space-y-3">
+        <div className="flex items-center gap-3">
+          <span className="text-xs font-semibold text-slate-400 uppercase tracking-widest">Automation & AI</span>
+          <div className="flex-1 h-px bg-slate-200/70" />
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {automationProjects.map((p) => (
             <ProjectCard key={p.slug} {...p} />
           ))}
         </div>

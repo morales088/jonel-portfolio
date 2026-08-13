@@ -86,6 +86,37 @@ const projectData: Record<string, {
     tools: ["Laravel", "MySQL", "JavaScript", "Bootstrap"],
     gradient: "from-pink-500 to-rose-600",
   },
+  telegrambot: {
+    title: "AI Assistant Telegram Bot",
+    description: "Automation — Personal AI assistant via Telegram",
+    longDescription: "Built an AI-powered personal assistant using n8n, connected to Telegram as the chat interface. The assistant integrates with Gmail, Google Drive, PDFs, and Excel files, letting users ask questions in natural language and get answers pulled directly from their own documents and data. Users can find specific files, summarize content, or ask general questions — all through a simple Telegram chat without switching between apps or complex search interfaces.",
+    tools: ["n8n", "Telegram", "AI / LLM", "Gmail API", "Google Drive API"],
+    gradient: "from-sky-500 to-indigo-600",
+  },
+  messengerbot: {
+    title: "Meta Messenger AI Ordering Bot",
+    description: "Automation — AI-powered ordering through Facebook Messenger",
+    longDescription: "Built an AI-powered ordering system using n8n connected to Facebook Messenger, letting customers place orders and pay online entirely through chat. Customers interact naturally in conversation — browsing items, confirming orders, and completing payment — without needing to visit a website or install a separate app. Removes friction from the ordering process and meets customers where they already are.",
+    tools: ["n8n", "Facebook Messenger", "AI / LLM", "Payments"],
+    gradient: "from-blue-500 to-violet-600",
+  },
+  ghlautomation: {
+    title: "PrimeMedSpa GHL Funnel + Automation",
+    description: "Automation — GoHighLevel funnel and CRM automation",
+    longDescription: "Built a live GoHighLevel funnel for PrimeMedSpa Portland, a medical and wellness client, including full booking integration connecting their Boulevard booking software to GHL so leads and appointments stay in sync automatically. Configured the CRM pipeline, lead nurture sequences, and used Zapier to bridge automation between GHL and other tools where no native integration existed. The result is a fully automated lead journey from first click to booked appointment with zero manual follow-up required.",
+    tools: ["GoHighLevel", "Zapier", "Boulevard", "CRM"],
+    links: [
+      { label: "Free Consultation", url: "https://go.primemedspapdx.com/free-consultation-248804" },
+    ],
+    gradient: "from-green-600 to-teal-700",
+  },
+  nextmbapayment: {
+    title: "NEXT MBA Payment Automation",
+    description: "Automation — Payment processing and enrollment automation",
+    longDescription: "Built a payment automation workflow using Make.com for NEXT MBA, an online learning platform. The automation handles payment processing tied directly to member enrollment and course access — when a payment is confirmed, the member is automatically enrolled and granted the correct access level. Reduces manual payment tracking, eliminates reconciliation errors, and ensures members get instant access without waiting for manual review.",
+    tools: ["Make.com", "Payments"],
+    gradient: "from-slate-600 to-slate-800",
+  },
   coffeeapps: {
     title: "Coffee Apps",
     description: "Client Work — Multi-Tenant SaaS for Coffee Shop Operations",

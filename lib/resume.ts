@@ -81,6 +81,30 @@ Gardner College, Quezon City, Philippines (2014–2017)
 
 ## Key Projects
 
+### AI Assistant Telegram Bot (Automation)
+- Built an AI-powered personal assistant using n8n, connected to Telegram as the chat interface
+- Integrates with Gmail, Google Drive, PDFs, and Excel files so users can ask questions in natural language and get answers from their own documents
+- Features: file search, content summarization, and general Q&A — all through a simple Telegram chat
+- Technologies: n8n, Telegram, AI/LLM, Gmail API, Google Drive API
+
+### Meta Messenger AI Ordering Bot (Automation)
+- Built an AI-powered ordering system using n8n connected to Facebook Messenger
+- Customers browse items, confirm orders, and pay entirely through Messenger chat — no website visit or separate app required
+- Technologies: n8n, Facebook Messenger, AI/LLM, Payments
+
+### PrimeMedSpa GoHighLevel Funnel + Automation (Automation)
+- Built a live GoHighLevel funnel for PrimeMedSpa Portland, a medical/wellness client
+- Integrated Boulevard booking software with GHL so leads and appointments stay in sync automatically
+- Configured CRM pipeline, lead nurture sequences, and used Zapier to bridge automation gaps between GHL and other tools
+- Result: fully automated lead journey from first click to booked appointment, zero manual follow-up
+- Technologies: GoHighLevel, Zapier, Boulevard, CRM
+
+### NEXT MBA Payment Automation (Automation)
+- Built a payment automation workflow using Make.com for NEXT MBA, an online learning platform
+- Automates payment processing tied to member enrollment and course access — confirmed payment triggers instant enrollment
+- Eliminates manual payment tracking and reconciliation errors
+- Technologies: Make.com, Payments
+
 ### Coffee Apps — Multi-Tenant SaaS Platform (Client Work)
 - Built a full multi-tenant SaaS platform for coffee shop operations, currently in active production use with a real coffee shop client
 - Real-time inventory deduction: every sale deducts recipe-mapped ingredients atomically with the order, preventing overselling automatically
@@ -113,11 +137,22 @@ Gardner College, Quezon City, Philippines (2014–2017)
 - Technologies: Laravel, MySQL, JavaScript, Bootstrap
 - Impact: Enhanced stock tracking and reduced manual errors by 40%
 
-### Webflow-Based Business Websites (No-Code Development)
-- Created visually appealing, responsive websites for small businesses
-- Technologies: Webflow, Custom HTML/CSS
-- Impact: Reduced development time by 50%
-- Examples: https://georgesmotorbikes.com, https://compoundgrowth.xyz, https://hairlessdreamelectrology.com
+### George Motorbikes (Client Work)
+- Built a professional website for George Motorbikes, a motorbike dealership showcasing their inventory and services
+- Focused on clean presentation and easy navigation for potential buyers
+- Technologies: Webflow, HTML/CSS
+- Live: https://georgesmotorbikes.com
+
+### Compound (Client Work)
+- Built a website for Compound Growth, a business growth platform providing tools and resources to help businesses scale
+- Technologies: Webflow, HTML/CSS
+- Live: https://compoundgrowth.xyz
+
+### Hairless Dream (Client Work)
+- Built a website for Hairless Dream Electrology, a salon and electrology clinic, featuring service listings and booking information
+- Clean modern design to attract and inform potential clients
+- Technologies: Webflow, HTML/CSS
+- Live: https://hairlessdreamelectrology.com
 
 ### School Management Portal
 - Backend system for student data handling and course management
