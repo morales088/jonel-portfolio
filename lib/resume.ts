@@ -140,18 +140,18 @@ Gardner College, Quezon City, Philippines (2014–2017)
 ### George Motorbikes (Client Work)
 - Built a professional website for George Motorbikes, a motorbike dealership showcasing their inventory and services
 - Focused on clean presentation and easy navigation for potential buyers
-- Technologies: Webflow, HTML/CSS
+- Technologies: Laravel, MySQL, JavaScript, Bootstrap
 - Live: https://georgesmotorbikes.com
 
 ### Compound (Client Work)
 - Built a website for Compound Growth, a business growth platform providing tools and resources to help businesses scale
-- Technologies: Webflow, HTML/CSS
+- Technologies: Laravel, MySQL, Vue.js, Tailwind CSS
 - Live: https://compoundgrowth.xyz
 
 ### Hairless Dream (Client Work)
 - Built a website for Hairless Dream Electrology, a salon and electrology clinic, featuring service listings and booking information
 - Clean modern design to attract and inform potential clients
-- Technologies: Webflow, HTML/CSS
+- Technologies: Laravel, MySQL, JavaScript, Tailwind CSS
 - Live: https://hairlessdreamelectrology.com
 
 ### School Management Portal
