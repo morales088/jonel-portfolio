@@ -81,6 +81,15 @@ Gardner College, Quezon City, Philippines (2014–2017)
 
 ## Key Projects
 
+### Coffee Apps — Multi-Tenant SaaS Platform (Client Work)
+- Built a full multi-tenant SaaS platform for coffee shop operations, currently in active production use with a real coffee shop client
+- Real-time inventory deduction: every sale deducts recipe-mapped ingredients atomically with the order, preventing overselling automatically
+- Payment-safe QR ordering: customers order via table QR code with no login; unpaid orders sit in a holding state, never reach the kitchen or touch inventory, and auto-expire after 1 hour
+- Auditable payroll: attendance-based hours calculated against historical pay rates — a raise never retroactively changes past payroll; finalized payroll runs are locked as permanent records
+- Multi-branch real-time dashboard with natural-language AI assistant (e.g. "how much did I make yesterday?") so owners get instant answers without digging through filters
+- Multi-tenant architecture: each coffee shop is fully data-isolated under a subscription model
+- Technologies: NestJS, Prisma, PostgreSQL (Supabase), React, TanStack Query, Zustand, WebSockets, pnpm monorepo
+
 ### NEXT MBA (Client Work)
 - Full-stack platform for business education with admin and member portals
 - Technologies: Laravel, MySQL, Vue.js, Tailwind CSS

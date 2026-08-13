@@ -86,6 +86,13 @@ const projectData: Record<string, {
     tools: ["Laravel", "MySQL", "JavaScript", "Bootstrap"],
     gradient: "from-pink-500 to-rose-600",
   },
+  coffeeapps: {
+    title: "Coffee Apps",
+    description: "Client Work — Multi-Tenant SaaS for Coffee Shop Operations",
+    longDescription: "Small coffee shop owners juggle disconnected tools — a POS that doesn't talk to inventory, a notebook for staff hours, no visibility into which branch is profitable, no way to know if they're about to run out of stock mid-rush. Coffee Apps is a multi-tenant SaaS platform built to solve this end to end. Every sale deducts recipe-mapped ingredients in the same atomic transaction, preventing overselling automatically. Customers order via table QR code with no login; unpaid orders sit in a holding state that never reaches the kitchen or touches inventory, with auto-cleanup after an hour — the shop loses nothing to no-shows. Attendance-based payroll is calculated against historical pay rates so a raise never retroactively changes past payroll, with finalized runs locked as permanent records. A real-time multi-branch dashboard shows sales, inventory, and staff activity per location, with a natural-language AI assistant so an owner can ask 'how much did I make yesterday' instead of digging through filters. Each coffee shop is fully data-isolated under a subscription model. Currently in active production use with a real coffee shop client.",
+    tools: ["NestJS", "Prisma", "PostgreSQL", "Supabase", "React", "TanStack Query", "Zustand", "WebSockets", "pnpm monorepo"],
+    gradient: "from-amber-800 to-stone-900",
+  },
   primemedspa: {
     title: "Prime MedSpa",
     description: "Client Work — Lead Generation & Booking Automation",
